@@ -1,1 +1,1 @@
-export const SERVER_URL = 'https://cst438gradebook-back-end.herokuapp.com/'
+export const SERVER_URL = 'http://localhost:8081'

@@ -49,6 +49,7 @@ class AddAssignment extends Component {
     return (
       <div>
         <Button
+          id='AddAssignment'
           variant='outlined'
           color='primary'
           style={{ margin: 10 }}
@@ -84,7 +85,7 @@ class AddAssignment extends Component {
             <Button color='secondary' onClick={this.handleClose}>
               Cancel
             </Button>
-            <Button color='primary' onClick={this.handleAdd}>
+            <Button id='Add' color='primary' onClick={this.handleAdd}>
               Add
             </Button>
           </DialogActions>
