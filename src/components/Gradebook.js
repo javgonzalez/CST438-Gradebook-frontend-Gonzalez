@@ -31,9 +31,10 @@ class Gradebook extends React.Component {
     console.log('Gradebook.fetchGrades')
     const token = Cookies.get('XSRF-TOKEN')
     fetch(
-      `${SERVER_URL}/gradebook/${this.props.location.assignment.assignmentId}`,
+      `${SERVER_URL}gradebook/${this.props.location.assignment.assignmentId}`,
       {
         method: 'GET',
+        credentials: 'include',
         headers: { 'X-XSRF-TOKEN': token },
       }
     )
@@ -67,10 +68,11 @@ class Gradebook extends React.Component {
     const token = Cookies.get('XSRF-TOKEN')
 
     fetch(
-      `${SERVER_URL}/gradebook/${this.props.location.assignment.assignmentId}`,
+      `${SERVER_URL}gradebook/${this.props.location.assignment.assignmentId}`,
       {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json', 'X-XSRF-TOKEN': token },
+        credentials: 'include',
         body: JSON.stringify({
           assignmentId: this.props.location.assignment.assignmentId,
           grades: this.state.grades,

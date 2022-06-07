@@ -27,8 +27,9 @@ class Assignment extends React.Component {
   fetchAssignments = () => {
     console.log('Assignment.fetchAssignments')
     const token = Cookies.get('XSRF-TOKEN')
-    fetch(`${SERVER_URL}/gradebook`, {
+    fetch(`${SERVER_URL}gradebook`, {
       method: 'GET',
+      credentials: 'include',
       headers: { 'X-XSRF-TOKEN': token },
     })
       .then((response) => response.json())
@@ -59,9 +60,10 @@ class Assignment extends React.Component {
   addAssignment = (assignment) => {
     const token = Cookies.get('XSRF-TOKEN')
 
-    fetch(`${SERVER_URL}/assignment`, {
+    fetch(`${SERVER_URL}assignment`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json', 'X-XSRF-TOKEN': token },
+      credentials: 'include',
       body: JSON.stringify(assignment),
     })
       .then((res) => {
